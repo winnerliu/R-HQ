@@ -1,0 +1,105 @@
+@import "./vars";
+
+@btn-font-size:36px;
+@btn-color:#fff;
+@btn-default-height:88px;
+@btn-default-width:100%;
+@btn-border-radius: 44px;
+
+.btn(){
+  font-size: @btn-font-size;
+  color: @btn-color;
+  width: @btn-default-width;
+  height: @btn-default-height;
+  line-height: @btn-default-height;
+  border-radius: @btn-border-radius;
+  border: @border transparent;
+  display: block;
+  text-align: center;
+}
+
+.btn-no-border-radius(){
+  font-size: @btn-font-size;
+  color: @btn-color;
+  width: @btn-default-width;
+  height: @btn-default-height;
+  line-height: @btn-default-height;
+  border: @border transparent;
+  border-radius: 0;
+  &:active{
+    border: @border transparent;
+  }
+}
+
+//主要按钮颜色
+.btn-primary(){
+  .btn();
+  background-color: #2793AF;
+  &:active{
+    background-color: #22839C;
+  }
+}
+
+//次要按钮颜色，不带圆角 主要是紧接在某一行的后面的按钮
+.btn-addCart(){
+ .btn();
+  background-color: #ef4f4f;
+  &:active{
+    background-color: #d93434;
+  }
+}
+
+//立即购买，默认也不带圆角
+.btn-buy(){
+  .btn-no-border-radius();
+  background-color: #ef4f4f;
+  &:active{
+    background-color: #d93434;
+  }
+}
+
+//删除按钮
+.btn-del(){
+  .btn-no-border-radius();
+  background-color: #ef4f4f;
+  &:active{
+    background-color: #d93434;
+  }
+}
+
+//微信支付
+.btn-pay-wx(){
+  .btn();
+  background-color: #02C321;
+  &:active{
+    background-color: #09a106;
+  }
+}
+//货到付款
+.btn-pay-df(){
+  .btn();
+  color: #ef4f4f;
+  background-color: #FFECEC;
+  border: @border #ef4f4f;
+  &:active{
+    background-color: #ffdede;
+  }
+}
+
+//弹出窗确定按钮
+.btn-modal(){
+  background-color: #E5F9F6;
+  color: #01C3A5;
+  border: @border #01C3A5;
+  &:active{
+    background-color: #D5FFF9;
+  }
+}
+
+//弹出窗取消按钮
+.btn-modal-cancel(){
+  color: #999;
+}
+
+
+
