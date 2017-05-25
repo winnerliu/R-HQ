@@ -1,29 +1,58 @@
-import React from 'react' ;
-import ReactDOM from 'react-dom' ;
-import Home from "./containers/home/index";
-import About from "./containers/about/index";
-import Category from "./containers/category/index";
-import SearchResult from "./containers/search-result/index";
-import ProductDetail from "./containers/product-detail/index";
-import SearchInput from "./containers/search-input/index";
-import paths from './constants/path/paths';
-import {Route, BrowserRouter as Router} from "react-router-dom";
+const React = require('react');
+const ReactDOM = require('react-dom');
+
+// 引入标准Fetch及IE兼容依赖
+import 'whatwg-fetch';
+import 'es6-promise/dist/es6-promise.min.js';
+import 'fetch-ie8/fetch.js';
+
+// 引入React-Router模块
+import { HashRouter } from 'react-router-dom'
+import { HashRouter as Router, Route } from 'react-router-dom'
 
 
+// bundle模型用来异步加载组件
+import Bundle from './bundle.js';
 
-ReactDOM.render(
-    (
-        <Router>
-            <div>
-                <Route exact path={"/"} component={Home}/>
-                <Route path={"/about"} component={About}/>
-                <Route path={"/category"} component={Category}/>
-                <Route path={"/search-input"} component={SearchInput}/>
-                <Route path={"/search-result"} component={SearchResult}/>
-                <Route path={"/product-detail"} component={ProductDetail}/>
+// 引入单个页面（包括嵌套的子页面）
+// 同步引入
+import Index from './app/index.js';
+// 异步引入
+import ListContainer from 'bundle-loader?lazy&name=app-[name]!./app/list.js';
 
-            </div>
-        </Router>
-    ),
-    document.getElementById('container')
-);
+const List = () => (
+    <Bundle load={ListContainer}>
+        {(List) => <List />}
+    </Bundle>
+)
+
+class Init extends React.Component {
+    constructor(props) {
+        super(props);
+        this.state = {
+        }
+    }
+    componentWillMount() {
+        console.log('will')
+    }
+    render() {
+        return (
+            <HashRouter>
+                <Router basename="/">
+                    <div>
+                        <Route exact path="/" component={Index} />
+                        <Route path="/list" component={List} />
+                    </div>
+                </Router>
+            </HashRouter>
+        )
+    }
+    componentDidMount(){
+    }
+}
+
+
+// 配置路由，并将路由注入到id为init的DOM元素中
+ReactDOM.render((
+    <Init />
+), document.querySelector('#init'))

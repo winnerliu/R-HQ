@@ -1,11 +1,4 @@
-node_modules
 npm-debug.log
-yarn-error.log
-.idea
-lib
-dist
-.e-config-ignore.js
-test.html
-test2.html
-**.rar
-**.orig
+npm-debug.log.*
+node_modules/
+.DS_Store
