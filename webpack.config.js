@@ -1,3 +1,4 @@
+/* eslint-disable linebreak-style */
 const path = require('path');
 const webpack = require('webpack');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
@@ -57,7 +58,8 @@ pageConfig.list.map(function(item, index) {
             template: item.template,
             title: item.title,
             filename: item.filename,
-            chunks: [item.chunks]
+            chunks: [item.chunks],
+            favicon:item.favicon,
         })
     )
 })
@@ -96,7 +98,7 @@ module.exports = {
                 loader: 'eslint-loader', 
                 options: { fix: true }
             }],
-            include: path.resolve(__dirname, './src/**/*.js'),
+            include: path.resolve(__dirname, './**/**/*.js'),
             exclude: /node_modules/
         }, {
             test: /\.js[x]?$/,

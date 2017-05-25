@@ -7,47 +7,47 @@ import 'es6-promise/dist/es6-promise.min.js';
 import 'fetch-ie8/fetch.js';
 
 // 引入React-Router模块
-import { HashRouter } from 'react-router-dom'
-import { HashRouter as Router, Route } from 'react-router-dom'
+import {HashRouter} from 'react-router-dom'
+import {HashRouter as Router, Route} from 'react-router-dom'
 
 
 // bundle模型用来异步加载组件
-import Bundle from './bundle.js';
+import Bundle from '../public/js/bundle.js';
 
 // 引入单个页面（包括嵌套的子页面）
 // 同步引入
-import Index from './app/index.js';
-// 异步引入
-import ListContainer from 'bundle-loader?lazy&name=app-[name]!./app/list.js';
+import Home from './home/index';
+import Category from './category/index';
+import SearchInput from './search-input/index';
+import SearchResult from './search-result/index';
 
-const List = () => (
-    <Bundle load={ListContainer}>
-        {(List) => <List />}
-    </Bundle>
-)
 
 class Init extends React.Component {
     constructor(props) {
         super(props);
-        this.state = {
-        }
+        this.state = {}
     }
+
     componentWillMount() {
         console.log('will')
     }
+
     render() {
         return (
             <HashRouter>
                 <Router basename="/">
                     <div>
-                        <Route exact path="/" component={Index} />
-                        <Route path="/list" component={List} />
+                        <Route exact path="/" component={Home}/>
+                        <Route path="/category" component={Category}/>
+                        <Route path="/search-input" component={SearchInput}/>
+                        <Route path="/search-result" component={SearchResult}/>
                     </div>
                 </Router>
             </HashRouter>
         )
     }
-    componentDidMount(){
+
+    componentDidMount() {
     }
 }
 
