@@ -7,7 +7,7 @@ yarn install(如果报错，请使用cnpm)
 yarn start -- 127.0.0.1
 ```
 
-然后即可以访问[http://127.0.0.1:1024/app.html#/index](http://127.0.0.1:1024/app.html#/index)看到页面了
+然后即可以访问[http://127.0.0.1:1000/app.html#/index](http://127.0.0.1:1000/app.html#/index)看到页面了
 
 # 编译
 

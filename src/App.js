@@ -19,7 +19,8 @@ import Bundle from '../public/js/bundle.js';
 import Home from './home/index';
 import Category from './category/index';
 import SearchInput from './search-input/index';
-import SearchResult from './search-result/index';
+import SearchResult from './search-result/index/index';
+import Test from './test/index';
 
 
 class Init extends React.Component {
@@ -41,6 +42,7 @@ class Init extends React.Component {
                         <Route path="/category" component={Category}/>
                         <Route path="/search-input" component={SearchInput}/>
                         <Route path="/search-result" component={SearchResult}/>
+                        <Route path="/test" component={Test}/>
                     </div>
                 </Router>
             </HashRouter>
