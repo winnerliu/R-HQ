@@ -1,26 +1,18 @@
 const React = require('react');
 const ReactDOM = require('react-dom');
-
 // 引入标准Fetch及IE兼容依赖
-import 'whatwg-fetch';
-import 'es6-promise/dist/es6-promise.min.js';
-import 'fetch-ie8/fetch.js';
-
+import "whatwg-fetch";
+import "es6-promise/dist/es6-promise.min.js";
+import "fetch-ie8/fetch.js";
 // 引入React-Router模块
-import {HashRouter} from 'react-router-dom'
-import {HashRouter as Router, Route} from 'react-router-dom'
-
-
+import {HashRouter, HashRouter as Router, Route} from "react-router-dom";
 // bundle模型用来异步加载组件
-import Bundle from '../public/js/bundle.js';
-
 // 引入单个页面（包括嵌套的子页面）
 // 同步引入
-import Home from './home/index';
-import Category from './category/index';
-import SearchInput from './search-input/index';
-import SearchResult from './search-result/index/index';
-import Test from './test/index';
+import Home from "./home/index";
+import Category from "./category/index/index";
+import SearchInput from "./search-input/index";
+import SearchResult from "./search-result/index/index";
 
 
 class Init extends React.Component {
@@ -42,7 +34,6 @@ class Init extends React.Component {
                         <Route path="/category" component={Category}/>
                         <Route path="/search-input" component={SearchInput}/>
                         <Route path="/search-result" component={SearchResult}/>
-                        <Route path="/test" component={Test}/>
                     </div>
                 </Router>
             </HashRouter>
